@@ -13,31 +13,88 @@ public class FileIOApp {
 		int total;
 		double avg;
 		int anw;
-
+		int menu;
+		
 		// 초기화
 		kor1 = 0;
 		kor2 = 0;
 		kor3 = 0;
 		anw = 1;
+		menu = 0;
 		
+
 		Scanner scan = new Scanner(System.in); // 사용자로부터 입력 받음. Scanner java.lang패키지라 import문 필요없음
 		// System.in 은 닫으면 에러날 수 있음 닫지 말기
-		//1.계속 0.종료
-		while (anw == 1 ) { // 
+		
+		//메뉴
+		{
+			System.out.println("프로그램을 시작합니다.");
+			System.out.println("┌────────────────────┐");
+			System.out.println("│       메인 메뉴      │");
+			System.out.println("└────────────────────┘");
+			System.out.println("1. 성적 입력");
+			System.out.println("2. 성적 출력 ");
+			System.out.println("3. 파일 입력");
+			System.out.println("4. 파일 출력");
+			System.out.println("5. 종   료");
+			menu = scan.nextInt();
+			if(menu == 1) {
+				
+			}
+			
+			
+			
+		}
+		
+		
+		
+		
+		// 1.계속 0.종료
+		while (anw == 1) { //
 			{
 				// 콘솔 입력
 				// -----------------------------------------------------------------------------------
-				System.out.println("프로그램을 시작합니다.");
 				System.out.println("┌────────────────────┐");
 				System.out.println("│       성적 입력      │");
 				System.out.println("└────────────────────┘");
 
-				System.out.println("국어1 : ");
-				kor1 = scan.nextInt(); // the int scanned from the input
-				System.out.println("국어2 : ");
-				kor2 = scan.nextInt();
-				System.out.println("국어3 : ");
-				kor3 = scan.nextInt();
+				// 0<kor1<100 벗어나면 재입력을 받고 싶다면?
+
+				// do-while 문, do문 먼저 수행 후 while문 조건 체크
+				do {
+					System.out.println("국어1 : ");
+					kor1 = scan.nextInt(); // the int scanned from the input
+
+					if ((kor1 < 0 || kor1 > 100))
+						System.out.println("0~100까지만 입력할 수 있습니다.");
+
+				} while ((kor1 < 0 || kor1 > 100));
+
+//				
+
+				do {
+					System.out.println("국어2 : ");
+					kor2 = scan.nextInt(); // the int scanned from the input
+
+					if ((kor2 < 0 || kor2 > 100))
+						System.out.println("0~100까지만 입력할 수 있습니다.");
+
+				} while ((kor2 < 0 || kor2 > 100));
+
+				do {
+					System.out.println("국어3 : ");
+					kor3 = scan.nextInt(); // the int scanned from the input
+
+					if ((kor3 < 0 || kor3 > 100))
+						System.out.println("0~100까지만 입력할 수 있습니다.");
+
+				} while ((kor3 < 0 || kor3 > 100));
+
+//				System.out.println("국어2 : ");
+//				kor2 = scan.nextInt();
+//
+//				System.out.println("국어3 : ");
+//				kor3 = scan.nextInt();
 			}
 			// 이제 입력값 받았으니까 밑에 콘솔 출력시 초기화값 위에 덮어씌워지겠지?
 
@@ -100,12 +157,11 @@ public class FileIOApp {
 				out.close();
 				fos.close();
 
-				
 //				if (anw == 2)
 //					break;
 			}
 			System.out.println("계속 하시겠습니까? 1.계속 0.종료");
-			
+
 			anw = scan.nextInt();
 		} // end of while
 		System.out.println("프로그램 종료");
