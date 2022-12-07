@@ -12,15 +12,18 @@ public class FileIOApp {
 		int kor1, kor2, kor3;
 		int total;
 		double avg;
+		int anw;
 
 		// 초기화
 		kor1 = 0;
 		kor2 = 0;
 		kor3 = 0;
-
+		anw = 0;
+		
 		Scanner scan = new Scanner(System.in); // 사용자로부터 입력 받음. Scanner java.lang패키지라 import문 필요없음
 		// System.in 은 닫으면 에러날 수 있음 닫지 말기
-		while (true) {
+		//1계속 2종료
+		while (anw != 2) { // 부정쓰기 싫으면 anw=1로 초기화하고,  조건식을  anw == 1로 해도 됨
 			{
 				// 콘솔 입력
 				// -----------------------------------------------------------------------------------
@@ -97,11 +100,13 @@ public class FileIOApp {
 				out.close();
 				fos.close();
 
-				System.out.println("계속 하시겠습니까? 1.계속 2.종료");
-				int anw = scan.nextInt();
-				if (anw == 2)
-					break;
+				
+//				if (anw == 2)
+//					break;
 			}
+			System.out.println("계속 하시겠습니까? 1.계속 2.종료");
+			
+			anw = scan.nextInt();
 		} // end of while
 		System.out.println("프로그램 종료");
 	}
