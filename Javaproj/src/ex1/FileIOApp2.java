@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Scanner;
 
-public class FileIOApp {
+public class FileIOApp2 {
 	public static void main(String[] args) throws IOException {
 
 		int kor1 = 0, kor2 = 0, kor3 = 0;
@@ -47,6 +47,9 @@ public class FileIOApp {
 				System.out.println("│       성적 입력      │");
 				System.out.println("└────────────────────┘");
 
+				// 0<kor1<100 벗어나면 재입력을 받고 싶다면?
+
+				// do-while 문, do문 먼저 수행 후 while문 조건 체크
 				do {
 					System.out.println("국어1 : ");
 					kor1 = scan.nextInt(); // the int scanned from the input
@@ -55,6 +58,8 @@ public class FileIOApp {
 						System.out.println("0~100까지만 입력할 수 있습니다.");
 
 				} while ((kor1 < 0 || kor1 > 100));
+
+//				
 
 				do {
 					System.out.println("국어2 : ");
@@ -74,7 +79,17 @@ public class FileIOApp {
 
 				} while ((kor3 < 0 || kor3 > 100));
 
-			} else if (menu == 2) {
+//				System.out.println("국어2 : ");
+//				kor2 = scan.nextInt();
+//
+//				System.out.println("국어3 : ");
+//				kor3 = scan.nextInt();
+
+				continue;
+			}
+			System.out.println("2번 검사 전");
+			// 이제 입력값 받았으니까 밑에 콘솔 출력시 초기화값 위에 덮어씌워지겠지?
+			if (menu == 2) {
 				// 콘솔 출력
 				// -----------------------------------------------------------------------------------
 				avg = total / 3.0;
@@ -89,9 +104,13 @@ public class FileIOApp {
 				System.out.printf("총점 : %3d\n", total);
 				System.out.printf("평균 : %6.2f\n", avg); // 8자리 중 소숫점은 2자리만 표기
 				System.out.println("-------------------------------------------");
-			} else if (menu == 3) {
+				continue;
+
+			}
+			if (menu == 3) {
 				// 파일 입력
 				// -----------------------------------------------------------------------------------
+				// 이제 또, 파일 입력(read)을 받으니까 콘솔 입력받은게 무효되겠지?
 				FileInputStream fis = new FileInputStream("res/data2.csv");
 				// fis 를 바로 사용하면 바이트단위로 읽게되니까 또 Scanner를 이용
 				Scanner readScan = new Scanner(fis);
@@ -115,7 +134,9 @@ public class FileIOApp {
 				System.out.println("---------------------------------------------");
 				readScan.close();
 				fis.close();
-			} else if (menu == 4) {
+				continue;
+			}
+			if (menu == 4) {
 				// 파일 출력(write)
 				// -----------------------------------------------------------------------------------
 				System.out.println("-------- data2 값이 data.txt 파일에 출력 ------------");
@@ -136,11 +157,10 @@ public class FileIOApp {
 				anw = 2;
 
 			} else {
-				System.out.println("1~5 까지만 입력할 수 있습니다.");
+				System.out.println("1~5 사이의 메뉴를 입력하세요.");
 
 			}
 		} // end of while
-		
-	} 
+	} // 메뉴 끝
 
 }
