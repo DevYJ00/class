@@ -35,12 +35,14 @@ public class FileIOApp2 {
 			System.out.println("└────────────────────┘");
 			System.out.println("1. 성적 입력");
 			System.out.println("2. 성적 출력 ");
-			System.out.println("3. 파일 입력");
+			System.out.println("3. 파일 읽어오기");
 			System.out.println("4. 파일 출력");
 			System.out.println("5. 종   료");
 			System.out.print(">");
 			menu = scan.nextInt();
-			if (menu == 1) {
+
+			switch (menu) {
+			case 1: {
 				// 콘솔 입력
 				// -----------------------------------------------------------------------------------
 				System.out.println("┌────────────────────┐");
@@ -59,7 +61,7 @@ public class FileIOApp2 {
 
 				} while ((kor1 < 0 || kor1 > 100));
 
-//				
+				//
 
 				do {
 					System.out.println("국어2 : ");
@@ -79,19 +81,13 @@ public class FileIOApp2 {
 
 				} while ((kor3 < 0 || kor3 > 100));
 
-//				System.out.println("국어2 : ");
-//				kor2 = scan.nextInt();
-//
-//				System.out.println("국어3 : ");
-//				kor3 = scan.nextInt();
-
-				continue;
 			}
-			System.out.println("2번 검사 전");
-			// 이제 입력값 받았으니까 밑에 콘솔 출력시 초기화값 위에 덮어씌워지겠지?
-			if (menu == 2) {
+				break;
+
+			case 2: {
 				// 콘솔 출력
 				// -----------------------------------------------------------------------------------
+				total = kor1 + kor2 + kor3;
 				avg = total / 3.0;
 
 				System.out.println("┌────────────────────┐");
@@ -104,10 +100,11 @@ public class FileIOApp2 {
 				System.out.printf("총점 : %3d\n", total);
 				System.out.printf("평균 : %6.2f\n", avg); // 8자리 중 소숫점은 2자리만 표기
 				System.out.println("-------------------------------------------");
-				continue;
 
 			}
-			if (menu == 3) {
+				break;
+
+			case 3: {
 				// 파일 입력
 				// -----------------------------------------------------------------------------------
 				// 이제 또, 파일 입력(read)을 받으니까 콘솔 입력받은게 무효되겠지?
@@ -120,6 +117,8 @@ public class FileIOApp2 {
 				kor1 = Integer.parseInt(kors[0]);
 				kor2 = Integer.parseInt(kors[1]);
 				kor3 = Integer.parseInt(kors[2]);
+				total = kor1+kor2+kor3;
+				avg = total/3;
 
 				System.out.println("data2 파일 데이터 읽은 값 출력");
 				System.out.println("┌────────────────────┐");
@@ -134,9 +133,11 @@ public class FileIOApp2 {
 				System.out.println("---------------------------------------------");
 				readScan.close();
 				fis.close();
-				continue;
+
 			}
-			if (menu == 4) {
+				break;
+
+			case 4: {
 				// 파일 출력(write)
 				// -----------------------------------------------------------------------------------
 				System.out.println("-------- data2 값이 data.txt 파일에 출력 ------------");
@@ -150,17 +151,21 @@ public class FileIOApp2 {
 				out.close();
 				fos.close();
 
-			} else if (menu == 5) {
+			}
+				break;
+
+			case 5: {
 
 				System.out.println("프로그램 종료");
 				System.out.println("-------------------------------");
 				anw = 2;
 
-			} else {
+			}
+			default:
 				System.out.println("1~5 사이의 메뉴를 입력하세요.");
 
 			}
-		} // end of while
-	} // 메뉴 끝
 
+		}
+	}
 }
