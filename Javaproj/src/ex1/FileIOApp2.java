@@ -26,7 +26,7 @@ public class FileIOApp2 {
 		// 메뉴
 
 		// 1. 계속 2. 종료
-//		NEWLECT:
+		NEWLECT:
 		while (anw == 1) {
 			System.out.println("---------------------------------------------");
 
@@ -165,7 +165,7 @@ public class FileIOApp2 {
 			default: {
 				System.out.println("1~5 사이의 메뉴를 입력하세요.");
 			}
-//				break NEWLECT; // 변수랑 혼동되니까 대문자로 표기
+				break NEWLECT; // 변수랑 혼동되니까 대문자로 표기
 
 			}
 
