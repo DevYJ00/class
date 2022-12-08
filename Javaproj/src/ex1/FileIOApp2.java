@@ -26,6 +26,7 @@ public class FileIOApp2 {
 		// 메뉴
 
 		// 1. 계속 2. 종료
+//		NEWLECT:
 		while (anw == 1) {
 			System.out.println("---------------------------------------------");
 
@@ -117,8 +118,8 @@ public class FileIOApp2 {
 				kor1 = Integer.parseInt(kors[0]);
 				kor2 = Integer.parseInt(kors[1]);
 				kor3 = Integer.parseInt(kors[2]);
-				total = kor1+kor2+kor3;
-				avg = total/3;
+				total = kor1 + kor2 + kor3;
+				avg = total / 3;
 
 				System.out.println("data2 파일 데이터 읽은 값 출력");
 				System.out.println("┌────────────────────┐");
@@ -161,8 +162,10 @@ public class FileIOApp2 {
 				anw = 2;
 
 			}
-			default:
+			default: {
 				System.out.println("1~5 사이의 메뉴를 입력하세요.");
+			}
+//				break NEWLECT; // 변수랑 혼동되니까 대문자로 표기
 
 			}
 
