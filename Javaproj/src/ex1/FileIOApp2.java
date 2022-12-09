@@ -26,8 +26,7 @@ public class FileIOApp2 {
 		// 메뉴
 
 		// 1. 계속 2. 종료
-		NEWLECT:
-		while (anw == 1) {
+		NEWLECT: while (anw == 1) {
 			System.out.println("---------------------------------------------");
 
 			System.out.println("프로그램을 시작합니다.");
@@ -94,14 +93,17 @@ public class FileIOApp2 {
 				System.out.println("┌────────────────────┐");
 				System.out.println("│       성적 출력      │");
 				System.out.println("└────────────────────┘");
-
-				System.out.printf("국어1 : %3d\n", kor1);
-				System.out.printf("국어2 : %3d\n", kor2);
-				System.out.printf("국어3 : %3d\n", kor3);
-				System.out.printf("총점 : %3d\n", total);
-				System.out.printf("평균 : %6.2f\n", avg); // 8자리 중 소숫점은 2자리만 표기
-				System.out.println("-------------------------------------------");
-
+				for (int i = 0; i <3; i++) {
+					{
+						System.out.printf("---------<%d>-------------\n", 3-i );
+						System.out.printf("국어1 : %3d\n", kor1);
+						System.out.printf("국어2 : %3d\n", kor2);
+						System.out.printf("국어3 : %3d\n", kor3);
+						System.out.printf("총점 : %3d\n", total);
+						System.out.printf("평균 : %6.2f\n", avg); // 8자리 중 소숫점은 2자리만 표기
+						System.out.println("-------------------------------------------");
+					}
+				}
 			}
 				break;
 
