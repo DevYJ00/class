@@ -24,6 +24,7 @@ public class OmokTest2 {
 			}
 			
 			
+			
 			System.out.println();
 
 		}
