@@ -55,7 +55,7 @@ public class ExamApp {
 				// do-while 문, do문 먼저 수행 후 while문 조건 체크
 				for (int i = 0; i < kors.length; i++) {
 					int kor;
-					
+
 					do {
 						System.out.printf("국어 %d : ", i + 1);
 						kor = scan.nextInt(); // the int scanned from the input
@@ -64,7 +64,7 @@ public class ExamApp {
 							System.out.println("0~100까지만 입력할 수 있습니다.");
 
 					} while ((kor < 0 || kor > 100));
-					
+
 					kors[i] = kor;
 				}
 
@@ -75,23 +75,29 @@ public class ExamApp {
 				// 콘솔 출력
 				// -----------------------------------------------------------------------------------
 //				total = kor1 + kor2 + kor3;
-				for (int i = 0; i < kors.length; i++)
-					total += kors[i];
-
-				avg = total / 3.0;
 
 				System.out.println("┌────────────────────┐");
 				System.out.println("│       성적 출력      │");
 				System.out.println("└────────────────────┘");
 				for (int i = 0; i < 3; i++) {
 					{
+						total = 0; // 초기화
+
+						// total 구하기
+						for (int j = 0; j < kors.length; j++) {
+							total += kors[j];
+						}
+
+						avg = total / 3.0;
+
 						System.out.printf("---------<%d>-------------\n", 3 - i);
-						System.out.printf("국어1 : %3d\n", kors[i]);
-						System.out.printf("국어2 : %3d\n", kors[i]);
-						System.out.printf("국어3 : %3d\n", kors[i]);
+						for (int j = 0; j < kors.length; j++) {
+//							
+							System.out.printf("국어%d : %3d\n", j, kors[j]);
+						}
+
 						System.out.printf("총점 : %3d\n", total);
 						System.out.printf("평균 : %6.2f\n", avg); // 8자리 중 소숫점은 2자리만 표기
-						System.out.println("-------------------------------------------");
 					}
 				}
 			}
@@ -105,25 +111,13 @@ public class ExamApp {
 				// fis 를 바로 사용하면 바이트단위로 읽게되니까 또 Scanner를 이용
 				Scanner readScan = new Scanner(fis);
 				String line = readScan.nextLine();
-				String[] kors = line.split(",");
+				String[] tokens = line.split(","); // 임시로 사용하는 지역변수니까 이름을 tokens로
 
-				kor1 = Integer.parseInt(kors[0]);
-				kor2 = Integer.parseInt(kors[1]);
-				kor3 = Integer.parseInt(kors[2]);
-				total = kor1 + kor2 + kor3;
-				avg = total / 3;
+				for (int i = 0; i < kors.length; i++) {
+					kors[i] = Integer.parseInt(tokens[i]);
 
-				System.out.println("data2 파일 데이터 읽은 값 출력");
-				System.out.println("┌────────────────────┐");
-				System.out.println("│       성적 출력      │");
-				System.out.println("└────────────────────┘");
+				}
 
-				System.out.printf("국어1 : %3d\n", kor1);
-				System.out.printf("국어2 : %3d\n", kor2);
-				System.out.printf("국어3 : %3d\n", kor3);
-				System.out.printf("총점 : %3d\n", total);
-				System.out.printf("평균 : %6.2f\n", avg);
-				System.out.println("---------------------------------------------");
 				readScan.close();
 				fis.close();
 
@@ -137,7 +131,7 @@ public class ExamApp {
 				FileOutputStream fos = new FileOutputStream("res/data.txt");
 				// fos 는 바이트단위니까 보조스트림 PrintStream이용
 				PrintStream out = new PrintStream(fos);
-				out.printf("%d,%d,%d\n", kor1, kor2, kor3);
+				out.printf("%d,%d,%d\n", kors[1], kors[2], kors[3]);
 				System.out.println("작업 완료");
 
 				out.flush(); // 이거 해줘야 하나?
