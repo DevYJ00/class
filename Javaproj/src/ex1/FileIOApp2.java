@@ -101,7 +101,8 @@ public class FileIOApp2 {
 						System.out.printf("국어3 : %3d\n", kor3);
 						System.out.printf("총점 : %3d\n", total);
 						System.out.printf("평균 : %6.2f\n", avg); // 8자리 중 소숫점은 2자리만 표기
-						System.out.println("-------------------------------------------");
+						System.out.println("------"
+								+ "-------------------------------------");
 					}
 				}
 			}
@@ -123,18 +124,7 @@ public class FileIOApp2 {
 				total = kor1 + kor2 + kor3;
 				avg = total / 3;
 
-				System.out.println("data2 파일 데이터 읽은 값 출력");
-				System.out.println("┌────────────────────┐");
-				System.out.println("│       성적 출력      │");
-				System.out.println("└────────────────────┘");
-
-				System.out.printf("국어1 : %3d\n", kor1);
-				System.out.printf("국어2 : %3d\n", kor2);
-				System.out.printf("국어3 : %3d\n", kor3);
-				System.out.printf("총점 : %3d\n", total);
-				System.out.printf("평균 : %6.2f\n", avg);
-				System.out.println("---------------------------------------------");
-				readScan.close();
+				
 				fis.close();
 
 			}

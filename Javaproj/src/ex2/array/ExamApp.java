@@ -131,7 +131,18 @@ public class ExamApp {
 				FileOutputStream fos = new FileOutputStream("res/data.txt");
 				// fos 는 바이트단위니까 보조스트림 PrintStream이용
 				PrintStream out = new PrintStream(fos);
-				out.printf("%d,%d,%d\n", kors[1], kors[2], kors[3]);
+//				
+				// 0 1 2
+				// 길이는 3
+				for (int i = 0; i < kors.length; i++) {
+					out.printf("%d", kors[i]);
+					
+				
+					if (i == kors.length - 1)
+						out.print("\n");
+					else
+						out.print(',');
+				}
 				System.out.println("작업 완료");
 
 				out.flush(); // 이거 해줘야 하나?
