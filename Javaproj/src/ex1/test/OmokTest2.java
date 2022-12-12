@@ -10,7 +10,14 @@ public class OmokTest2 {
 
 				if (x == 3 && y == 3)
 					System.out.printf("%c", '○');
-
+				else if(x==1&& y==1)
+					System.out.printf("%c", '┌');
+				else if(x==1&& y==10)
+					System.out.printf("%c", '└');
+				else if(x==10&& y==1)
+					System.out.printf("%c", '┐');
+				else if(x==10&& y==10)
+					System.out.printf("%c", '┘');
 				else if (y == 1)
 					System.out.printf("%c", '┬');
 				else if( y == 10)
