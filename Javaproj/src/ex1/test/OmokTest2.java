@@ -23,6 +23,7 @@ public class OmokTest2 {
 					System.out.printf("%c", '┼');
 			}
 			
+			
 			System.out.println();
 
 		}
